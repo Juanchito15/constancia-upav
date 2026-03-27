@@ -8,17 +8,17 @@
         /* Estilos generales */
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f4f4; /* Fondo gris para resaltar el contenedor blanco */
+            background-color: #f4f4f4;
             margin: 0;
-            padding: 40px;
+            padding: 20px; /* Reducido para móviles */
         }
 
-        /* Contenedor principal que simula el fondo blanco del documento */
+        /* Contenedor principal */
         .contenedor {
             background-color: #ffffff;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 0 0 40px 0;
+            padding: 0 0 30px 0;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
@@ -26,57 +26,92 @@
         .titulo-seccion {
             background-color: #000000;
             color: #ffffff;
-            font-size: 22px;
-            padding: 15px 25px;
-            margin-top: 40px;
-            margin-bottom: 25px;
+            font-size: 20px; /* Ligeramente más pequeño para móviles */
+            padding: 12px 20px;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
-        /* Primera barra sin margen superior */
         .contenedor .titulo-seccion:first-child {
             margin-top: 0;
         }
 
-        /* Cuadrícula para alinear los datos en 6 columnas */
+        /* Cuadrícula base (Móviles por defecto) */
         .cuadricula-datos {
             display: grid;
-            /* Se definen 6 columnas: Etiqueta 1, Valor 1, Etiqueta 2, Valor 2, Etiqueta 3, Valor 3 */
-            grid-template-columns: 140px 180px 130px 220px 120px 1fr;
-            gap: 20px 15px;
-            align-items: center;
+            /* En móviles, solo 1 columna: la etiqueta arriba y el valor abajo */
+            grid-template-columns: 1fr;
+            gap: 5px 15px; /* Menos espacio vertical en móviles */
             font-size: 14px;
             color: #000000;
-            padding: 0 25px;
+            padding: 0 20px;
         }
 
-        /* Negritas para los encabezados de los datos */
+        /* Agrupamos cada par de Etiqueta-Valor para controlarlo mejor en móvil */
+        .grupo-dato {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee; /* Línea separadora sutil en móviles */
+            padding-bottom: 5px;
+        }
+
         .etiqueta {
             font-weight: bold;
+            margin-bottom: 3px;
         }
 
-        /* Estilo para el recuadro azul del pie de página */
+        /* Ocultar elementos vacíos en móvil */
+        .vacio {
+            display: none;
+        }
+
+        /* Estilo para el recuadro azul */
         .recuadro-aviso {
-            background-color: #bde0ea; /* Azul claro extraído de la imagen */
-            padding: 25px;
-            margin: 40px 25px 0 25px;
-            font-size: 14px;
+            background-color: #bde0ea;
+            padding: 20px;
+            margin: 30px 20px 0 20px;
+            font-size: 13px; /* Letra un poco más chica para que quepa bien */
             color: #333333;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
         .recuadro-aviso p {
             margin: 0 0 15px 0;
         }
 
-        .recuadro-aviso p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Estilo para el correo electrónico verde */
         .enlace-correo {
             color: #008000;
             font-weight: bold;
             text-decoration: none;
+            word-break: break-all; /* Para que el correo no se desborde de la pantalla */
+        }
+
+        /* Contenedor del QR */
+        .contenedor-qr {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* --- MEDIA QUERIES PARA PANTALLAS GRANDES (ESCRITORIO/TABLET) --- */
+        @media (min-width: 768px) {
+            body { padding: 40px; }
+            .titulo-seccion { font-size: 22px; padding: 15px 25px; margin-bottom: 25px; }
+            .recuadro-aviso { font-size: 14px; padding: 25px; margin: 40px 25px 0 25px; }
+            
+            /* Restauramos la vista de 6 columnas de la imagen original */
+            .cuadricula-datos {
+                grid-template-columns: 140px 180px 130px 220px 120px 1fr;
+                gap: 20px 15px;
+                padding: 0 25px;
+            }
+
+            /* Quitamos el estilo de bloque de las filas en escritorio */
+            .grupo-dato {
+                display: contents; /* Hace que el contenedor actúe como si no estuviera y sus hijos (etiqueta y valor) participen del grid principal */
+            }
+
+            .etiqueta { margin-bottom: 0; }
+            .vacio { display: block; } /* Mostrar elementos vacíos para mantener la estructura */
+            .grupo-dato { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
         }
     </style>
 </head>
@@ -87,63 +122,91 @@
         <div class="titulo-seccion">Datos del Aprendiente</div>
         
         <div class="cuadricula-datos">
-            <div class="etiqueta">Matrícula:</div>
-            <div class="valor">20231112363</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">Matrícula:</div>
+                <div class="valor">20231112363</div>
+            </div>
             
-            <div class="etiqueta">Nombre del<br>Aprendiente:</div>
-            <div class="valor">VASQUEZ<br>GALLEGOS HANNAH<br>NADXIELI</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">Nombre del<br>Aprendiente:</div>
+                <div class="valor">VASQUEZ<br>GALLEGOS HANNAH<br>NADXIELI</div>
+            </div>
             
-            <div class="etiqueta">CURP:</div>
-            <div class="valor">VAGH050708MVZSLNA5</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">CURP:</div>
+                <div class="valor">VAGH050708MVZSLNA5</div>
+            </div>
 
-            <div class="etiqueta">Propuesta<br>Educativa:</div>
-            <div class="valor">LICENCIATURA EN<br>DERECHO</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">Propuesta<br>Educativa:</div>
+                <div class="valor">LICENCIATURA EN<br>DERECHO</div>
+            </div>
             
-            <div class="etiqueta">Generación:</div>
-            <div class="valor">SEPTIEMBRE 2024 -<br>AGOSTO 2027</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">Generación:</div>
+                <div class="valor">SEPTIEMBRE 2024 -<br>AGOSTO 2027</div>
+            </div>
             
-            <div></div>
-            <div></div>
+            <div class="vacio"></div>
+            <div class="vacio"></div>
 
-            <div class="etiqueta">No. de Registro:</div>
-            <div class="valor">612301</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">No. de Registro:</div>
+                <div class="valor">612301</div>
+            </div>
             
-            <div class="etiqueta">Sede:</div>
-            <div class="valor">MINATITLAN</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">Sede:</div>
+                <div class="valor">MINATITLAN</div>
+            </div>
             
-            <div class="etiqueta">Municipio:</div>
-            <div class="valor">MINATITLÁN</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">Municipio:</div>
+                <div class="valor">MINATITLÁN</div>
+            </div>
         </div>
-
 
         <div class="titulo-seccion">Datos de la Constancia</div>
         
         <div class="cuadricula-datos">
-            <div class="etiqueta">Folio:</div>
-            <div class="valor">20231112363174</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">Folio:</div>
+                <div class="valor">20231112363042</div>
+            </div>
             
-            <div class="etiqueta">Fecha de<br>Expedición:</div>
-            <div class="valor">10/03/26</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">Fecha de<br>Expedición:</div>
+                <div class="valor">19/12/25</div>
+            </div>
             
-            <div class="etiqueta">Periodo Escolar:</div>
-            <div class="valor">ENE 26 - ABR 26</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">Periodo Escolar:</div>
+                <div class="valor">SEP 25 - DIC 25</div>
+            </div>
 
-            <div class="etiqueta">Fecha Inicio:</div>
-            <div class="valor">10/01/26</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">Fecha Inicio:</div>
+                <div class="valor">06/09/25</div>
+            </div>
             
-            <div class="etiqueta">Fecha Conclusión:</div>
-            <div class="valor">30/04/26</div>
+            <div class="grupo-dato">
+                <div class="etiqueta">Fecha Conclusión:</div>
+                <div class="valor">20/12/25</div>
+            </div>
             
-            <div></div>
-            <div></div>
+            <div class="vacio"></div>
+            <div class="vacio"></div>
         </div>
-
 
         <div class="recuadro-aviso">
             <p>Esta información consta en la base de datos oficial de la Dirección de Educación Superior de la Universidad Popular Autónoma de Veracruz (UPAV).</p>
             <p>El uso que terceras personas hagan de esta información no es responsabilidad de la Universidad Popular Autónoma de Veracruz.</p>
             <p>Si requiere un documento oficial, dirigirse a la Dirección de Educación Superior de la UPAV, a través del correo:</p>
             <p><a href="mailto:controlescolar.es@upav.edu.mx" class="enlace-correo">controlescolar.es@upav.edu.mx</a></p>
+        </div>
+
+        <div class="contenedor-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://juanchito15.github.io/constancia-upav/" alt="Código QR UPAV" width="120" height="120">
         </div>
 
     </div>
