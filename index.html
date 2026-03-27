@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formato UPAV - Datos del Aprendiente</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4; /* Fondo gris para resaltar el contenedor blanco */
+            margin: 0;
+            padding: 40px;
+        }
+
+        /* Contenedor principal que simula el fondo blanco del documento */
+        .contenedor {
+            background-color: #ffffff;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 0 40px 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Barras negras de título */
+        .titulo-seccion {
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 22px;
+            padding: 15px 25px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+        }
+
+        /* Primera barra sin margen superior */
+        .contenedor .titulo-seccion:first-child {
+            margin-top: 0;
+        }
+
+        /* Cuadrícula para alinear los datos en 6 columnas */
+        .cuadricula-datos {
+            display: grid;
+            /* Se definen 6 columnas: Etiqueta 1, Valor 1, Etiqueta 2, Valor 2, Etiqueta 3, Valor 3 */
+            grid-template-columns: 140px 180px 130px 220px 120px 1fr;
+            gap: 20px 15px;
+            align-items: center;
+            font-size: 14px;
+            color: #000000;
+            padding: 0 25px;
+        }
+
+        /* Negritas para los encabezados de los datos */
+        .etiqueta {
+            font-weight: bold;
+        }
+
+        /* Estilo para el recuadro azul del pie de página */
+        .recuadro-aviso {
+            background-color: #bde0ea; /* Azul claro extraído de la imagen */
+            padding: 25px;
+            margin: 40px 25px 0 25px;
+            font-size: 14px;
+            color: #333333;
+            line-height: 1.8;
+        }
+
+        .recuadro-aviso p {
+            margin: 0 0 15px 0;
+        }
+
+        .recuadro-aviso p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Estilo para el correo electrónico verde */
+        .enlace-correo {
+            color: #008000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        
+        <div class="titulo-seccion">Datos del Aprendiente</div>
+        
+        <div class="cuadricula-datos">
+            <div class="etiqueta">Matrícula:</div>
+            <div class="valor">20231112363</div>
+            
+            <div class="etiqueta">Nombre del<br>Aprendiente:</div>
+            <div class="valor">VASQUEZ<br>GALLEGOS HANNAH<br>NADXIELI</div>
+            
+            <div class="etiqueta">CURP:</div>
+            <div class="valor">VAGH050708MVZSLNA5</div>
+
+            <div class="etiqueta">Propuesta<br>Educativa:</div>
+            <div class="valor">LICENCIATURA EN<br>DERECHO</div>
+            
+            <div class="etiqueta">Generación:</div>
+            <div class="valor">SEPTIEMBRE 2024 -<br>AGOSTO 2027</div>
+            
+            <div></div>
+            <div></div>
+
+            <div class="etiqueta">No. de Registro:</div>
+            <div class="valor">612301</div>
+            
+            <div class="etiqueta">Sede:</div>
+            <div class="valor">MINATITLAN</div>
+            
+            <div class="etiqueta">Municipio:</div>
+            <div class="valor">MINATITLÁN</div>
+        </div>
+
+
+        <div class="titulo-seccion">Datos de la Constancia</div>
+        
+        <div class="cuadricula-datos">
+            <div class="etiqueta">Folio:</div>
+            <div class="valor">20231112363042</div>
+            
+            <div class="etiqueta">Fecha de<br>Expedición:</div>
+            <div class="valor">19/12/25</div>
+            
+            <div class="etiqueta">Periodo Escolar:</div>
+            <div class="valor">SEP 25 - DIC 25</div>
+
+            <div class="etiqueta">Fecha Inicio:</div>
+            <div class="valor">06/09/25</div>
+            
+            <div class="etiqueta">Fecha Conclusión:</div>
+            <div class="valor">20/12/25</div>
+            
+            <div></div>
+            <div></div>
+        </div>
+
+
+        <div class="recuadro-aviso">
+            <p>Esta información consta en la base de datos oficial de la Dirección de Educación Superior de la Universidad Popular Autónoma de Veracruz (UPAV).</p>
+            <p>El uso que terceras personas hagan de esta información no es responsabilidad de la Universidad Popular Autónoma de Veracruz.</p>
+            <p>Si requiere un documento oficial, dirigirse a la Dirección de Educación Superior de la UPAV, a través del correo:</p>
+            <p><a href="mailto:controlescolar.es@upav.edu.mx" class="enlace-correo">controlescolar.es@upav.edu.mx</a></p>
+        </div>
+
+    </div>
+
+</body>
+</html>
